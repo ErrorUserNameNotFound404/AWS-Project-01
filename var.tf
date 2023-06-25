@@ -22,16 +22,16 @@ variable "ami_ubuntu_server" {
   default     = "ami-03f65b8614a860c29"
 }
 
-variable "amazon_server_instance_name" {
+variable "amz_srv_name" {
   description = "Amazon Server Instance Name tag"
   type        = string
-  default     = "amazon-server"
+  default = "Amazon_Linux_Server_"
 }
 
-variable "ubuntu_server_instance_name" {
+variable "ub_srv_name" {
   description = "Ubuntu Server Instance Name tag"
-  type        = string
-  default     = "ubuntu-server"
+  type = string
+  default = "Ubuntu_Linux_Server_"
 }
 
 variable "ec2_instance_type" {
@@ -41,10 +41,10 @@ variable "ec2_instance_type" {
 }
 
 # Public VPC / Subnet variables
-variable "pub_vpc_name" {
+variable "pub_vpc" {
   description = "Public VPC name value"
   type        = string
-  default     = "vpc_pub"
+  default     = "Public_VPC_"
 }
 
 variable "pub_vpc_cidr" {
@@ -56,7 +56,7 @@ variable "pub_vpc_cidr" {
 variable "pub_subnet_name" {
   description = "Public Subnet name value"
   type        = string
-  default     = "pub_subnet"
+  default     = "Public_Subnet_"
 }
 
 variable "pub_subnet_cidr" {
@@ -66,10 +66,10 @@ variable "pub_subnet_cidr" {
 }
 
 # Private VPC / Subnet variables
-variable "pri_vpc_name" {
+variable "pri_vpc" {
   description = "Privat VPC name value"
   type        = string
-  default     = "vpc_pri"
+  default     = "Private_VPC_"
 }
 
 variable "pri_vpc_cidr" {
@@ -78,10 +78,10 @@ variable "pri_vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "pri_subnet_name" {
+variable "pri_subnet" {
   description = "Private Subnet name value"
   type        = string
-  default     = "pri_subnet"
+  default     = "Privat_Subnet_"
 }
 
 variable "pri_subnet_cidr" {

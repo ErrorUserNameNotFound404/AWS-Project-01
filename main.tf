@@ -20,7 +20,7 @@ resource "aws_instance" "amz-svr-01" {
   instance_type = var.ec2_instance_type
 
   tags = {
-    Name = var.amazon_server_instance_name
+    Name = "${var.amz_srv_name}01"
   }
 }
 
@@ -29,7 +29,7 @@ resource "aws_instance" "amz-svr-02" {
   instance_type = var.ec2_instance_type
 
   tags = {
-    Name = var.amazon_server_instance_name
+    Name = "${var.amz_srv_name}02"
   }
 }
 
@@ -38,7 +38,7 @@ resource "aws_instance" "ub-svr-01" {
   instance_type = var.ec2_instance_type
 
   tags = {
-    Name = var.ubuntu_server_instance_name
+    Name = "${var.ub_srv_name}01"
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_instance" "ub-svr-02" {
   instance_type = var.ec2_instance_type
 
   tags = {
-    Name = var.ubuntu_server_instance_name
+    Name = "${var.ub_srv_name}02"
   }
 }
 
@@ -57,32 +57,32 @@ resource "aws_vpc" "pub_vpc_01" {
   instance_tenancy = "default"
 
   tags = {
-    Name = var.pub_vpc_name
+    Name = "${var.pub_vpc}01"
   }
 }
 
 resource "aws_vpc" "pub_vpc_02" {
   cidr_block = var.pub_vpc_cidr
   tags = {
-    Name = var.pub_vpc_name
+    Name = "${var.pub_vpc}02"
   }
 
 }
 
 # AWS Public Subnets
 resource "aws_subnet" "pub_subnet_01" {
-  vpc_id = aws_vpc.pri_vpc_01.id
+  vpc_id     = aws_vpc.pri_vpc_01.id
   cidr_block = var.pub_subnet_cidr
   tags = {
-    Name = var.pub_subnet_name
+    Name = "${var.pub_subnet_name}01"
   }
 }
 
 resource "aws_subnet" "pub_subnet_02" {
-  vpc_id = aws_vpc.pri_vpc_02.id
+  vpc_id     = aws_vpc.pri_vpc_02.id
   cidr_block = var.pub_subnet_cidr
   tags = {
-    Name = var.pub_subnet_name
+    Name = "${var.pub_subnet_name}02"
   }
 }
 
@@ -92,7 +92,7 @@ resource "aws_vpc" "pri_vpc_01" {
   instance_tenancy = "default"
 
   tags = {
-    Name = var.pri_vpc_name
+    Name = "${var.pri_vpc}01"
   }
 }
 
@@ -101,23 +101,23 @@ resource "aws_vpc" "pri_vpc_02" {
   instance_tenancy = "default"
 
   tags = {
-    Name = var.pri_vpc_name
+    Name = "${var.pri_vpc}02"
   }
 }
 
 # AWS Private Subnets
 resource "aws_subnet" "pri_subnet_01" {
-  vpc_id = aws_vpc.pub_vpc_01.id
+  vpc_id     = aws_vpc.pub_vpc_01.id
   cidr_block = var.pub_subnet_cidr
   tags = {
-    Name = var.pub_subnet_name
+    Name = "${var.pri_subnet}01"
   }
 }
 
 resource "aws_subnet" "pri_subnet_02" {
-  vpc_id = aws_vpc.pub_vpc_02.id
+  vpc_id     = aws_vpc.pub_vpc_02.id
   cidr_block = var.pub_subnet_cidr
   tags = {
-    Name = var.pub_subnet_name
+    Name = "${var.pri_subnet}02"
   }
 }
